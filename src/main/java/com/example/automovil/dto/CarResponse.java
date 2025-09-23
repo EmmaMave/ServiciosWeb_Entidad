@@ -4,8 +4,8 @@ import java.util.UUID;
 
 public record CarResponse (
     UUID id,
-    String modelo,
-    String marca,
+    String model,
+    String brand,
     String color
     //int anio
 ){}
