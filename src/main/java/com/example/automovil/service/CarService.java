@@ -17,15 +17,15 @@ public class CarService {
 
     public CarResponse add(CarRequest car) {
         Car c = Car.builder()
-                .modelo(car.modelo())
-                .marca(car.marca())
+                .model(car.model())
+                .brand(car.brand())
                 .color(car.color()).build();
         repo.add(c);
         return toResponse(c);
     }
 
     private CarResponse toResponse(Car car) {
-        return new CarResponse(car.getId(), car.getModelo(), car.getMarca(), car.getColor());
+        return new CarResponse(car.getId(), car.getModel(), car.getBrand(), car.getColor());
     }
 
 }
