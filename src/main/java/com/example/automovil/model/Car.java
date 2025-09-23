@@ -13,8 +13,8 @@ import java.util.UUID;
 
 public class Car {
     private UUID id;
-    private String modelo;
-    private String marca;
+    private String model;
+    private String brand;
     private String color;
     //private int anio;
 }
