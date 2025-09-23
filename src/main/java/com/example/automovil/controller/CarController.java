@@ -64,4 +64,10 @@ public class CarController {
     public List<CarResponse> getByModel(@RequestParam String model {
         return service.getByMarca(model);
     }
+
+      // GET - Buscar autos por modelo
+    @GetMapping("/search")
+    public List<CarResponse> getByColor(@RequestParam String color {
+        return service.getByColor(color);
+    }  
 }
