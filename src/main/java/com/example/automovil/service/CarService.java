@@ -24,6 +24,13 @@ public class CarService {
         return toResponse(c);
     }
 
+public void delete(UUID id) {
+        if (!repo.deleteById(id)) {
+            throw new IllegalArgumentException("Automovil no encontrado: " + id);
+        }
+    }
+    
+
     private CarResponse toResponse(Car car) {
         return new CarResponse(car.getId(), car.getModel(), car.getBrand(), car.getColor());
     }
