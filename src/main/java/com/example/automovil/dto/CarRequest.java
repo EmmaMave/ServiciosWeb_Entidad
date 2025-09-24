@@ -8,15 +8,15 @@ import jakarta.validation.constraints.Size;
 public record CarRequest(
 
     @NotBlank(message = "La marca es obligatoria")
-    String marca,
+    String brand,
 
     @NotBlank(message = "El modelo es obligatorio")
-    String modelo,
+    String model,
 
     @NotBlank(message = "El color es obligatorio")
-    String color,
+    String color
 
    // @NotNull(message = "El año es obligatorio")
-    @Positive(message = "El año debe ser un número positivo")
-    Integer anio,
+//    @Positive(message = "El año debe ser un número positivo")
+//    Integer anio
 ) {}

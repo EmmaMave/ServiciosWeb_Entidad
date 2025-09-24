@@ -20,6 +20,8 @@ public class CarController {
         this.service = service;
     }
 
+
+
     // POST 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -29,45 +31,45 @@ public class CarController {
 
     // GETALL
     @GetMapping
-    public List<CarResponse> getAll() {
-        return service.getAll();
+    public List<CarResponse> findAll() {
+        return service.findAllCars();
     }
 
     // GET 
     @GetMapping("/{id}")
     public CarResponse getById(@PathVariable UUID id) {
-        return service.getById(id);
+        return service.getCar(id);
     }
 
     // PUT 
     @PutMapping("/{id}")
     public CarResponse update(@PathVariable UUID id, @Valid @RequestBody CarRequest car) {
-        return service.update(id, car);
+        return service.update(id,car);
     }
 
     // DELETE - Eliminar auto por ID
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable UUID id) {
-        service.deleteById(id);
+        service.delete(id);
     }
 
     // GET - Buscar autos por marca 
     @GetMapping("/search")
-    public List<CarResponse> getByBrand(@RequestParam String brand) {
-        return service.getByMarca(marca);
+    public CarResponse getByBrand(@RequestParam String brand) {
+        return service.getByBrand(brand);
     }
 
     
     // GET - Buscar autos por modelo
     @GetMapping("/search")
-    public List<CarResponse> getByModel(@RequestParam String model {
-        return service.getByMarca(model);
+    public CarResponse getByModel(@RequestParam String model) {
+        return service.getByModel(model);
     }
 
       // GET - Buscar autos por modelo
     @GetMapping("/search")
-    public List<CarResponse> getByColor(@RequestParam String color {
+    public CarResponse getByColor(@RequestParam String color) {
         return service.getByColor(color);
     }  
 }
