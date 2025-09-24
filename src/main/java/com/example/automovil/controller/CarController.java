@@ -2,6 +2,7 @@ package com.example.automovil.controller;
 
 import com.example.automovil.dto.CarRequest;
 import com.example.automovil.dto.CarResponse;
+import com.example.automovil.model.Car;
 import com.example.automovil.service.CarService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -19,8 +20,6 @@ public class CarController {
     public CarController(CarService service) {
         this.service = service;
     }
-
-
 
     // POST 
     @PostMapping
@@ -55,21 +54,21 @@ public class CarController {
     }
 
     // GET - Buscar autos por marca 
-    @GetMapping("/search")
-    public CarResponse getByBrand(@RequestParam String brand) {
+    @GetMapping("/brand/{brand}")
+    public List<CarResponse> getByBrand(@PathVariable String brand) {
         return service.getByBrand(brand);
     }
 
     
     // GET - Buscar autos por modelo
-    @GetMapping("/search")
-    public CarResponse getByModel(@RequestParam String model) {
+    @GetMapping("/model/{model}")
+    public List<CarResponse> getByModel(@PathVariable String model) {
         return service.getByModel(model);
     }
 
       // GET - Buscar autos por modelo
-    @GetMapping("/search")
-    public CarResponse getByColor(@RequestParam String color) {
+    @GetMapping("/color/{color}")
+    public List<CarResponse> getByColor(@PathVariable String color) {
         return service.getByColor(color);
     }  
 }

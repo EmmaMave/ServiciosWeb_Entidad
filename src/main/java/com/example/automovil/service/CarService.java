@@ -62,22 +62,40 @@ public class CarService {
         }
     }
     
-    public CarResponse getByBrand(String brand) {
-        Car car = repo.findByBrand(brand)
-                .orElseThrow(() -> new IllegalArgumentException("Automovil no encontrado" + brand));
-        return toResponse(car);
+    public List<CarResponse> getByBrand(String brand) {
+        List<Car> cars = repo.findByBrand(brand);
+
+        if (cars.isEmpty()) {
+            throw new IllegalArgumentException("No se encontraron automóviles con la marca " + brand);
+        }
+
+        return cars.stream()
+                .map(this::toResponse)
+                .toList();
     }
 
-    public CarResponse getByModel(String model) {
-        Car car = repo.findByBrand(model)
-                .orElseThrow(() -> new IllegalArgumentException("Automovil no encontrado" + model));
-        return toResponse(car);
+    public List<CarResponse> getByModel(String model) {
+        List<Car> cars = repo.findByModel(model);
+
+        if (cars.isEmpty()) {
+            throw new IllegalArgumentException("No se encontraron automóviles con la marca " + model);
+        }
+
+        return cars.stream()
+                .map(this::toResponse)
+                .toList();
     }
 
-    public CarResponse getByColor(String color) {
-        Car car = repo.findByBrand(color)
-                .orElseThrow(() -> new IllegalArgumentException("Automovil no encontrado" + color));
-        return toResponse(car);
+    public List<CarResponse> getByColor(String color) {
+        List<Car> cars = repo.findByColor(color);
+
+        if (cars.isEmpty()) {
+            throw new IllegalArgumentException("No se encontraron automóviles con la marca " + color);
+        }
+
+        return cars.stream()
+                .map(this::toResponse)
+                .toList();
     }
 
     private CarResponse toResponse(Car car) {

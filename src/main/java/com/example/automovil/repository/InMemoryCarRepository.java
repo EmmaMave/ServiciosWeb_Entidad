@@ -35,17 +35,17 @@ public class InMemoryCarRepository implements CarReposirotyTemp {
     }
 
     @Override
-    public Optional<Car> findByBrand(String brand) {
-        return data.values().stream().filter(car -> car.getBrand().equalsIgnoreCase(brand)).findFirst();
+    public List<Car> findByBrand(String brand) {
+        return data.values().stream().filter(car -> car.getBrand().equalsIgnoreCase(brand)).toList();
     }
 
     @Override
-    public Optional<Car> findByModel(String model) {
-        return data.values().stream().filter(car -> car.getModel().equalsIgnoreCase(model)).findFirst();
+    public List<Car> findByModel(String model) {
+        return data.values().stream().filter(car -> car.getModel().equalsIgnoreCase(model)).toList();
     }
 
     @Override
-    public Optional<Car> findByColor(String color) {
-        return data.values().stream().filter(car -> car.getColor().equalsIgnoreCase(color)).findFirst();
+    public List<Car> findByColor(String color) {
+        return data.values().stream().filter(car -> car.getColor().equalsIgnoreCase(color)).toList();
     }
 }

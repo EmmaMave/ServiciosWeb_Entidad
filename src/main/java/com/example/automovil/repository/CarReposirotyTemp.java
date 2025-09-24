@@ -16,10 +16,10 @@ public interface CarReposirotyTemp {
 
     boolean deleteById(UUID id);
 
-    Optional<Car> findByBrand(String brand);
+    List<Car> findByBrand(String brand);
 
-    Optional<Car> findByModel(String model);
+    List<Car> findByModel(String model);
 
-    Optional<Car> findByColor(String color);
+    List<Car> findByColor(String color);
 
 }
